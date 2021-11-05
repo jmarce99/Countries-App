@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+body {
+  margin: 0px;
+}
+
+.bkgimagen{
+  position: fixed;
+  z-index: -1;
+  width: 104%;
+  height: 140%;
+  top: -180px;
+  left: -25px;
+  opacity: 0.65;
+  transition: all 300ms ease-in-out;
+}
+
+a {
+  text-decoration: none;
+  text-align: center;
+  color: #ffde59;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5
+a,
+span {
+  margin: 0;
+  padding: 0;
+}
+/*background: -webkit-radial-gradient(#560e86, #0a0011); or #290f70*/
+.container {
+  background: -webkit-radial-gradient(#103058, #0a0011);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+  font-size: 1rem;
+  line-height: 1.4;
+  letter-spacing: 0.5em;
+  font-weight: 700;
+  font-style: normal;
+  font-family: "Hammersmith One", sans-serif;
+}
+
+.nav {
+  position: relative;
+  color: #ffde59;
+  top: 2rem;
+  font-size: 1.3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 3rem;
+  
+}
+.nav h2{
+    width: 30%;
+    background: -webkit-radial-gradient(#ba66ff15, #0a0011);
+}
+
+.navlinks {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 15%;
+  left: 90%;
+  background: -webkit-radial-gradient(#ba66ff15, #0a0011);
+}
+.icon {
+  font-size: 2em;
+  color: #bdcbd6;
+}
+
+.home {
+  position: relative;
+  width: 100%;
+  height: 80%;
+  text-align: center;
+}
+
+.titles {
+  position: relative;
+  top: 42%;
+}
+
+.primary {
+  color: #bfc7d8;
+  font-size: 3.2rem;
+}
+
+.secondary {
+  color: #87929b;
+  font-size: 1.7rem;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.2em;
+}
+
+.container .start:hover {
+  transition: all 900ms ease-in-out;
+  opacity: 0.9;
+  background: -webkit-radial-gradient(#1d5599, #0a0011b9);
+}
+.prueba span{
+    opacity: 0.2;
+    filter:blur(1px);
+    font-size: 1.5rem;
+}
+.prueba span:hover{
+    opacity: 0.6;
+    filter:blur(0.7px);
+    background: -webkit-radial-gradient(#ba66ff73, #0a0011c2);
+}
+.prueba span:nth-child(1) {
+  color: #00bef8;
+  background: -webkit-radial-gradient(#00bef838, #0a0011c2);
+}
+.prueba span:nth-child(2){
+  color: #ff0697;
+  background: -webkit-radial-gradient(#ff069738, #0a0011c2);
+}
+.prueba span:nth-child(3) {
+  color: #ff4d00;
+  background: -webkit-radial-gradient(#ff4d0038, #0a0011c2);
+}
+.prueba span:nth-child(4) {
+  color: #ffe600;
+  background: -webkit-radial-gradient(#ffe60038, #0a0011c2);
+}
+.prueba span:nth-child(5) {
+  color: #bb66ff;
+  background: -webkit-radial-gradient(#bb66ff38, #0a0011c2);
+}
+.start {
+  position: relative;
+  color: #ffde59;
+  font-size: 1.5rem;
+  top: 55%;
+  opacity: 0.5;
+  background: -webkit-radial-gradient(#ba66ff73, #0a0011c2);
+}
+
+.designby {
+  position: relative;
+  color: #3d4750;
+  top: 5%;
+  text-align: center;
+  background: -webkit-radial-gradient(#ba66ff15, #0a0011);
+}

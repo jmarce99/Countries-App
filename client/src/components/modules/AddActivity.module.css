@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+/*background: -webkit-radial-gradient(#10305830, #0a001190);*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #bfc7d8;
+  --secondary-color: #ffde59;
+  --terceary-color: #edb888;
+  --others-color: #87929b;
+  --gradient-primary-bottom: linear-gradient(to bottom, #10305810, #0a0011 100%);
+  --error-color:#87929b;
+  --background-radial-color: -webkit-radial-gradient(#10305810, #0a0011);
+  --background-radial-color-secondary: -webkit-radial-gradient(#10305810, #0a001190);
+  --background-radial-hover-color: -webkit-radial-gradient(#45581040, #0a001110);
+  --input-border-color: #87929b40;
+}
+
+select {
+  background-color: transparent;
+  border: 2px solid var(--input-border-color);
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  cursor: pointer;
+  text-align: center;
+  background: var(--gradient-primary-bottom);
+  color: var(--others-color);
+}
+
+
+
+select:focus {
+  outline: none;
+}
+
+
+.container {
+  background: var(--background-radial-color);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  font-size: 1rem;
+  line-height: 1.4;
+  letter-spacing: 0.4em;
+  font-weight: 700;
+  font-style: normal;
+  font-family: "Hammersmith One", sans-serif;
+}
+
+.countryimg {
+  position: fixed;
+  height: 100%;
+  left: -350px;
+  z-index: 1;
+  opacity: 0.9;
+  transition: all 300ms ease-in-out;
+}
+
+.content {
+  background: var(--background-radial-color);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.arriba {
+  background: var(--background-radial-color);
+  position: absolute;
+  width: 100%;
+  height: 8%;
+  z-index: 2;
+}
+.abajo {
+  background: var(--background-radial-color-secondary);
+  position: absolute;
+  width: 100%;
+  height: 91.8%;
+  top: 8.2%;
+  z-index: 2;
+}
+
+.data {
+  position: absolute;
+  background: var(--background-radial-color);
+  width: 80%;
+  height: 90%;
+  z-index: 3;
+  margin: 2.5% 10%;
+  border-radius: 20px;
+}
+
+.up {
+  display: flex;
+  position: relative;
+  height: 10%;
+  width: 100%;
+  background: var(--background-radial-color);
+  justify-content: center;
+}
+.up h2 {
+  position: relative;
+  color: var(--secondary-color);
+  margin: auto;
+}
+.down {
+  display: flex;
+  position: relative;
+  height: 89.2%;
+  width: 100%;
+  top: 1%;
+  background: var(--background-radial-color-secondary);
+  justify-content: center;
+}
+
+.izqdata {
+  position: relative;
+  background: var(--background-radial-color-secondary);
+  width: 49.25%;
+  height: 100%;
+  z-index: 4;
+  margin-right: 0.5%;
+}
+
+.izqdata_up {
+  display: grid;
+  position: relative;
+  background: var(--background-radial-color-secondary);
+  height: 49%;
+  width: 100%;
+}
+
+.izqdata_up h2 {
+  position: relative;
+  color: var(--terceary-color);
+  font-size: 1.5rem;
+  text-align: center;
+  top: 10px;
+}
+.izqdata_up input {
+  position: relative;
+  background: var(--background-radial-color-secondary);
+  height: 50%;
+  width: 80%;
+  margin: 0 auto;
+  color: var(--others-color);
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 1.4;
+  letter-spacing: 0.4em;
+  font-weight: 700;
+  font-style: normal;
+  font-family: "Hammersmith One", sans-serif;
+  border: 2px solid var(--input-border-color);
+}
+
+.izqdata_down {
+  display: flex;
+  position: relative;
+  background: var(--background-radial-color-secondary);
+  height: 49%;
+  width: 100%;
+  top: 1%;
+  color: var(--others-color);
+  justify-content: space-around;
+}
+
+.izqdata_down ul {
+  list-style: none;
+  position: relative;
+  top: 10%;
+  padding: 0;
+}
+.izqdata_down li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.izqdata_down h2 {
+  color: var(--terceary-color);
+  font-size: 1.5rem;
+  position: relative;
+  top: 30px;
+}
+
+.izqdata_down h3 {
+  color: var(--others-color);
+  font-size: 1rem;
+  margin: 0 30%;
+}
+
+.derdata {
+  position: relative;
+  background: var(--background-radial-color-secondary);
+  width: 49.25%;
+  height: 100%;
+  z-index: 4;
+}
+
+.derdata_up {
+  display: grid;
+  position: relative;
+  background: var(--background-radial-color-secondary);
+  height: 49%;
+  width: 100%;
+}
+
+.derdata_up h2 {
+  position: relative;
+  color: var(--terceary-color);
+  font-size: 1.5rem;
+  text-align: center;
+  top: 10px;
+}
+
+.derdata_up input {
+  position: relative;
+  background: var(--background-radial-color-secondary);
+  height: 45%;
+  width: 80%;
+  bottom: 10px;
+  margin: 0 auto;
+  color: var(--others-color);
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 1.4;
+  letter-spacing: 0.4em;
+  font-weight: 700;
+  font-style: normal;
+  font-family: "Hammersmith One", sans-serif;
+  border: 2px solid var(--input-border-color);
+}
+
+.derdata_down {
+  position: relative;
+  background: var(--background-radial-color);
+  height: 49%;
+  width: 100%;
+  top: 1%;
+}
+
+.derdata_down h2 {
+  position: relative;
+  color: var(--terceary-color);
+  font-size: 1.5rem;
+  text-align: center;
+  top: 10px;
+}
+
+.derdata_down span {
+  display: flex;
+  position: relative;
+  border-radius: 30%;
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  opacity: 0.8;
+  justify-content: center;
+  top: 70%;
+}
+
+.derdata_down span:hover {
+  opacity: 1;
+  cursor: pointer;
+  background: var(--background-radial-hover-color);
+  font-size: 1.51rem;
+}

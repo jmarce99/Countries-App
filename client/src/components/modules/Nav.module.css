@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+.container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+.nav{
+    background: -webkit-radial-gradient(#10305850, #0a0011);
+    display: grid;
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    z-index: 1;
+    grid-template-columns: 2fr 6fr 1fr;
+
+    font-size: 1rem;
+    line-height: 1.4;
+    letter-spacing: 0.4em;
+    font-weight: 700;
+    font-style: normal;
+    font-family: "Hammersmith One", sans-serif;
+
+}
+.henry{
+    position: relative;
+    width: 100%;
+    height: 15%;
+    z-index: 2;
+    top: 5px;
+}
+
+.henry h1 {
+    position: relative;
+    color: #bfc7d8;
+    font-size: 1.3rem;
+    z-index: 3;
+    font-family: "Hammersmith One", sans-serif;
+    text-align: center;
+  }
+
+  .henry h2 {
+    position: relative;
+    color: #ffde59;
+    font-size: 1rem;
+    z-index: 3;
+    font-family: "Hammersmith One", sans-serif;
+    text-align: center;
+  }
+
+.nav_links{
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav_falinks{
+    display: grid;
+    position: relative;
+    grid-template-columns: 2fr 2fr;
+    align-items: center;
+}
+
+  .icon {
+    font-size: 2em;
+    margin: 0 10px;
+    color: #bdcbd6;
+  }

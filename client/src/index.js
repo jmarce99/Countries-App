@@ -1,17 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { store } from "./store";
+
+import Home from "./components/home/Home";
+import Countries from "./components/countries/Countries";
+import AddActivity from "./components/addactivity/AddActivity";
+import SeeMore from "./components/seemore/SeeMore";
+import Error404 from "./components/error404/Error404";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <Provider store={store}>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/countries" component={Countries} />
+        <Route exact path="/addactivity" component={AddActivity} />
+        <Route exact path="/seemore/:id" component={SeeMore} />
+        <Route path="*" component={Error404} />
+      </Switch>
+    </BrowserRouter>
+  </Provider>,
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

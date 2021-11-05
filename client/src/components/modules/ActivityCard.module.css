@@ -1,0 +1,68 @@
+.container {
+  background: -webkit-radial-gradient(#1f5fad10, #0a0011);
+  position: absolute;
+  width: 80%;
+  height: 95%;
+  top: 2.5%;
+  z-index: -2;
+  font-size: 0.8rem;
+  letter-spacing: 0.5em;
+  font-family: "Hammersmith One", sans-serif;
+  border-radius: 10px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.title {
+  background: -webkit-radial-gradient(#10305810, #0a001190);
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 15%;
+  align-items: center;
+  justify-content: center;
+}
+.title h2 {
+  position: relative;
+  font-size: 2.5rem;
+  letter-spacing: 0.4em;
+  color: #edb888;
+}
+
+.data {
+  display: flex;
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  height: 83%;
+  color: #87929b;
+}
+
+.data ul {
+  display: grid;
+  position: relative;
+  width:100%;
+  grid-template-columns: 1fr;
+  list-style: none;
+  margin: 0 15%;
+  padding: 0;
+  align-items: center;
+}
+
+.data li {
+  display: grid;
+  position: relative;
+  grid-template-columns:2fr 2fr;
+}
+.data h3 {
+  display: block;
+  color: #bdcbd6;
+  font-size: 1.2rem;
+  text-align: left;
+}
+.data span {
+  display: inline-block;
+  color: #87929b;
+  font-size: 1.2rem;
+  text-align: right;
+}

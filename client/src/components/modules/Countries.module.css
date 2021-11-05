@@ -1,0 +1,302 @@
+@import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  font-size: 1rem;
+  line-height: 1.4;
+  letter-spacing: 0.4em;
+  font-weight: 700;
+  font-style: normal;
+  font-family: "Hammersmith One", sans-serif;
+}
+.izquierda {
+  background: -webkit-radial-gradient(#10305830, #0a001190);
+  position: absolute;
+  width: 20%;
+  height: 100%;
+  z-index: 2;
+}
+.derecha {
+  background: -webkit-radial-gradient(#10305810, #0a0011);
+  position: absolute;
+  width: 80.05%;
+  height: 100%;
+  left: 19.95%;
+  z-index: 2;
+}
+.der_arriba {
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  z-index: 3;
+}
+
+.der_arriba1 {
+  background: -webkit-radial-gradient(#10305870, #0a0011);
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 49.2%;
+  z-index: 3;
+  justify-content: space-between;
+}
+
+.arriba1_links {
+  display: flex;
+  position: relative;
+  width: 100%;
+  top: 30%;
+  justify-content: space-around;
+}
+
+.navlinks {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr 1fr;
+  width: 15%;
+  top: 20%;
+}
+.icon {
+  font-size: 2em;
+  color: #bdcbd6;
+}
+
+.sortby {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 49.2%;
+  top: 50.6%;
+  z-index: 3;
+  justify-content: space-around;
+}
+.sortby h2 {
+  position: relative;
+  color: #edb888;
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 0.2em;
+  z-index: 4;
+  top: 35%;
+  margin-left: 5%;
+  font-family: "Hammersmith One", sans-serif;
+}
+.sortby h3 {
+  position: relative;
+  color: #bfc7d8;
+  font-size: 0.8rem;
+  text-align: right;
+  letter-spacing: 0.2em;
+  z-index: 4;
+  top: 20%;
+  left: 5%;
+  font-family: "Hammersmith One", sans-serif;
+}
+
+.sortby ul {
+  display: flex;
+  justify-content: space-between;
+  top: 35%;
+}
+.sortby li {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin: 0 40px;
+}
+.sortby input {
+  width: 20px;
+  height: 20px;
+}
+
+.der_abajo {
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  top: 85%;
+  z-index: 3;
+}
+
+.countries_container {
+  position: absolute;
+  width: 100%;
+  height: 69.6%;
+  top: 15.2%;
+}
+
+.countries {
+  display: grid;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+  grid-template-rows: 2fr 2fr;
+  z-index: 5;
+}
+
+.countries_article {
+  display: flex;
+  position: relative;
+  justify-content: space-around;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.countryimg {
+  position: fixed;
+  height: 100%;
+  left: -350px;
+  z-index: 1;
+  opacity: 0.9;
+  transition: all 300ms ease-in-out;
+}
+
+.henry {
+  position: absolute;
+  background: -webkit-radial-gradient(#10305830, #0a0011);
+  width: 100%;
+  height: 15%;
+  z-index: 2;
+}
+.henry h1 {
+  position: relative;
+  color: #bfc7d8;
+  font-size: 1.5rem;
+  text-align: center;
+  z-index: 4;
+  top: 25%;
+  font-family: "Hammersmith One", sans-serif;
+}
+.henry h2 {
+  position: relative;
+  color: #ffde59;
+  font-size: 1.1rem;
+  text-align: center;
+  z-index: 4;
+  top: 20%;
+  font-family: "Hammersmith One", sans-serif;
+}
+
+.searchbyname {
+  position: absolute;
+  background: -webkit-radial-gradient(#10305830, #0a0011);
+  width: 100%;
+  height: 15%;
+  top: 15.2%;
+  z-index: 2;
+}
+.searchbyname h2 {
+  position: relative;
+  color: #bfc7d8;
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 0.2em;
+  z-index: 4;
+  top: 25%;
+  font-family: "Hammersmith One", sans-serif;
+}
+
+.searchbyname input {
+  position: relative;
+  width: 85%;
+  top: 35%;
+  left: 5%;
+}
+
+.filterbycontinent {
+  position: absolute;
+  background: -webkit-radial-gradient(#10305830, #0a0011);
+  width: 100%;
+  height: 30%;
+  top: 30.4%;
+  z-index: 2;
+}
+
+.filterbycontinent h2 {
+  position: relative;
+  color: #edb888;
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 0.2em;
+  z-index: 4;
+  top: 9%;
+  font-family: "Hammersmith One", sans-serif;
+}
+
+.filterbycontinent h3 {
+  position: relative;
+  color: #87929b;
+  font-size: 1rem;
+  text-align: right;
+  letter-spacing: 0.2em;
+  z-index: 4;
+  top: 9%;
+  right: 35%;
+  font-family: "Hammersmith One", sans-serif;
+}
+
+.filterbycontinent ul {
+  position: relative;
+  margin-top: 10%;
+}
+.filterbycontinent li {
+  position: relative;
+  margin-top: 2%;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+}
+.filterbycontinent input {
+  width: 20px;
+  height: 20px;
+}
+
+.filterbyactivity {
+  position: absolute;
+  background: -webkit-radial-gradient(#10305830, #0a0011);
+  width: 100%;
+  height: 39%;
+  top: 60.6%;
+  z-index: 2;
+}
+
+.filterbyactivity h2 {
+  position: relative;
+  color: #edb888;
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 0.2em;
+  z-index: 4;
+  top: 9%;
+  font-family: "Hammersmith One", sans-serif;
+}
+
+.filterbyactivity h3 {
+  position: relative;
+  color: #87929b;
+  font-size: 1rem;
+  text-align: right;
+  letter-spacing: 0.2em;
+  z-index: 4;
+  top: 9%;
+  right: 35%;
+  font-family: "Hammersmith One", sans-serif;
+}
+
+.filterbyactivity ul {
+  position: relative;
+  margin-top: 10%;
+}
+.filterbyactivity li {
+  position: relative;
+  margin-top: 2%;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+}
+.filterbyactivity input {
+  width: 20px;
+  height: 20px;
+}

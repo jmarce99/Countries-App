@@ -12,6 +12,6 @@ const router = Router();
 
 router.use(express.json());
 router.use("/countries",countryrutes);
-router.use("/activity",activityroutes);
+router.use("/activities",activityroutes);
 
 module.exports = router;

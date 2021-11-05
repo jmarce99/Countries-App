@@ -110,14 +110,32 @@ const AddActivity = () => {
 
   // FUNCTION HANDLE BUTTON INPUT COUNTRY
   const handleKeyDown = (e) => {
-    const countriesFind = countries.find(
-      (country) => country.id === e.target.value.toUpperCase()
-    );
+    // if(e.target.value.length)
+
     if (e.key === "Enter") {
-      if (countriesFind) {
-        setForm({...form, countries: [...form.countries, countriesFind.id]})
-        alert("Country added to activity");
-      } else alert("Country not found");
+      if (e.target.value.length === 3) {
+        const countriesFind = countries.find(
+          (country) => country.id === e.target.value.toUpperCase()
+        );
+        if (countriesFind) {
+          setForm({
+            ...form,
+            countries: [...form.countries, countriesFind.name],
+          });
+          alert("Country added to activity");
+        } else alert("Country not found");
+      } else {
+        const countriesFind = countries.find(
+          (country) => country.name.toLowerCase() === e.target.value.toLowerCase()
+        );
+        if (countriesFind) {
+          setForm({
+            ...form,
+            countries: [...form.countries, countriesFind.name],
+          });
+          alert("Country added to activity");
+        } else alert("Country not found");
+      }
     }
   };
 
@@ -134,7 +152,7 @@ const AddActivity = () => {
     ) {
       alert("You need to fill everything form to create a activity");
     } else {
-      let res = await axios.post("http://localhost:3001/activity", form);
+      let res = await axios.post("http://localhost:3001/activities", form);
       alert("Your activity has been created!");
 
       console.log(res.data);
@@ -294,7 +312,11 @@ const AddActivity = () => {
                 <div className={styles.derdata_up}>
                   <h2>Search Countries:</h2>
                   <input type="text" onKeyDown={(e) => handleKeyDown(e)} />
-                  <select onChange={handleChange} name="countries">
+                  <select
+                    onChange={handleChange}
+                    name="countries"
+                    className={styles.select_activity}
+                  >
                     <option value="">SELECT A COUNTRY</option>
                     {countries.map((i) => (
                       <option value={i.name}>{i.name}</option>

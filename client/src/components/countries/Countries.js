@@ -3,7 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 //IMPORTS ACTIONS
-import { fetchCountries, resetErrors, setCountriesSort } from "../../actions";
+import {
+  fetchCountries,
+  resetErrors,
+  setCountriesSort,
+  filterByActivity,
+  setCountriesFilter,
+} from "../../actions";
 
 //IMPORTS COMPONENTS
 import CountryCard from "../countryCard/CountryCard";
@@ -19,15 +25,22 @@ import styles from "../modules/Countries.module.css";
 
 const Countries = () => {
   //DEFINES USESELECTOR AND USEDISPATCH
-  let countries = useSelector((state) => state.countries);
-  let countriesSort = useSelector((state) => state.countriesSort);
-  let selectedSort = useSelector((state) => state.selectedSort);
-  let errors = useSelector((state) => state.errors);
-  let dispatch = useDispatch();
+  const countries = useSelector((state) => state.countries);
+  const countriesSort = useSelector((state) => state.countriesSort);
+  const selectedSort = useSelector((state) => state.selectedSort);
+  const selectedFilter = useSelector((state) => state.selectedFilter);
+  const errors = useSelector((state) => state.errors);
+  const dispatch = useDispatch();
+  const activities = useSelector((state) => state.activities);
+
+  const activitiesArray = [];
+  activities.map((activity) => {
+    let find = activitiesArray.find((act) => act.id === activity.id);
+    !find ? activitiesArray.push(activity) : (find = null);
+  });
 
   //DEFINES LOCALS STATES
   //const [filterByContinent, setFilterByContinent] = useState("");
-  //const [filterByActivity, setFilterByActivity] = useState(""); 
   const [currentPage, setCurrentPage] = useState(1);
   const [countriesPerPage] = useState(8);
 
@@ -69,6 +82,32 @@ const Countries = () => {
     }
   }
 
+  //FUNCTION Filter
+  function filter(params) {
+    
+    if (params === "") {
+      dispatch(setCountriesFilter(""));
+    } else {
+      dispatch(setCountriesFilter(params));
+    }
+    dispatch(fetchCountries());
+  }
+
+  //FUNCTION HANDLE Filter
+  function handleFilter(e) {
+    setCurrentPage(1);
+    if (selectedFilter === e.target.id) {
+      filter("");
+    } else {
+      filters
+        .filter((element) => element.id !== e.target.id)
+        .map((element) => {
+          return (element.checked = false);
+        });
+      filter(e.target.id);
+    }
+  }
+
   //FUNCTION HANDLE CHANGE
   function handleChange(e) {
     dispatch(setCountriesSort(""));
@@ -77,11 +116,11 @@ const Countries = () => {
     });
     dispatch(fetchCountries(e.target.value));
     setCurrentPage(1);
-    if (errors) {
-      dispatch(resetErrors());
-    } else {
-      dispatch(resetErrors());
-    }
+    dispatch(resetErrors());
+  }
+  //FUNCTION HANDLE ACTIVITY CHANGE
+  function handleActivyChange(e) {
+    dispatch(filterByActivity(e.target.value));
   }
 
   //SORTS INPUTS
@@ -91,6 +130,16 @@ const Countries = () => {
   const sortA2 = document.getElementById("2");
   const sortB2 = document.getElementById("3");
   sorts.push(sortA, sortB, sortA2, sortB2);
+
+  //FILTERS INPUTS
+  const filters = [];
+  const filterA = document.getElementById("africa");
+  const filterB = document.getElementById("south america");
+  const filterC = document.getElementById("north america");
+  const filterD = document.getElementById("asia");
+  const filterF = document.getElementById("europe");
+  const filterG = document.getElementById("oceania");
+  filters.push(filterA, filterB, filterC, filterD, filterF, filterG);
 
   //GET INPUT NAME
   const inputName = document.getElementById("inputName");
@@ -105,7 +154,7 @@ const Countries = () => {
 
   //CHANGE PAGE
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const totalPages = countries.length / countriesPerPage;
+  const totalPages = countriesSort.length / countriesPerPage;
 
   //RENDER
   return (
@@ -124,59 +173,77 @@ const Countries = () => {
           <h2>FILTER BY CONTINENT</h2>
           <ul>
             <li>
-              <input type="checkbox" name="africa" id="4" />
+              <input
+                type="checkbox"
+                name="africa"
+                id="africa"
+                onClick={handleFilter}
+              />
               <h3>Africa</h3>
             </li>
             <li>
-              <input type="checkbox" name="america" id="5" />
-              <h3>America</h3>
+              <input
+                type="checkbox"
+                name="south america"
+                id="south america"
+                onClick={handleFilter}
+              />
+              <h3>South America</h3>
             </li>
             <li>
-              <input type="checkbox" name="asia" id="6" />
+              <input
+                type="checkbox"
+                name="north america"
+                id="north america"
+                onClick={handleFilter}
+              />
+              <h3>North America</h3>
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                name="asia"
+                id="asia"
+                onClick={handleFilter}
+              />
               <h3>Asia</h3>
             </li>
             <li>
-              <input type="checkbox" name="europa" id="7" />
-              <h3>Europa</h3>
+              <input
+                type="checkbox"
+                name="europe"
+                id="europe"
+                onClick={handleFilter}
+              />
+              <h3>Europe</h3>
             </li>
             <li>
-              <input type="checkbox" name="oceania" id="8" />
+              <input
+                type="checkbox"
+                name="oceania"
+                id="oceania"
+                onClick={handleFilter}
+              />
               <h3>Oceania</h3>
             </li>
           </ul>
         </div>
         <div className={styles.filterbyactivity}>
           <h2>FILTER BY ACTIVITY</h2>
-          <ul>
-            <li>
-              <input type="checkbox" name="all" id="9" />
-              <h3>All</h3>
-            </li>
-            <li>
-              <input type="checkbox" name="climb" id="10" />
-              <h3>Climb</h3>
-            </li>
-            <li>
-              <input type="checkbox" name="dance" id="11" />
-              <h3>Dance</h3>
-            </li>
-            <li>
-              <input type="checkbox" name="dive" id="12" />
-              <h3>Dive</h3>
-            </li>
-            <li>
-              <input type="checkbox" name="skydive" id="13" />
-              <h3>Sky Dive</h3>
-            </li>
-            <li>
-              <input type="checkbox" name="wwim" id="14" />
-              <h3>Swim</h3>
-            </li>
-            <li>
-              <input type="checkbox" name="windsurf" id="15" />
-              <h3>Windsurf</h3>
-            </li>
-          </ul>
+          <select
+            id="select"
+            className={styles.selectAct}
+            onChange={(e) => handleActivyChange(e)}
+          >
+            <option value="all">ALL</option>
+            {activitiesArray
+              ? activitiesArray.map((activity) => (
+                  <option key={activity.id} value={activity.name}>
+                    {activity.name}
+                  </option>
+                ))
+              : null}
+          </select>
         </div>
       </div>
       <div className={styles.derecha}>

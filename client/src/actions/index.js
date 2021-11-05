@@ -6,13 +6,25 @@ import {
   RESET_ERRORS,
   SET_COUNTRIESSORT,
   FETCH_COUNTRIESSORT,
+  FETCH_ACTIVITY,
+  FILTER_BY_ACTIVITY,
+  SET_COUNTRIESFILTER,
+  // FETCH_COUNTRIESFILTERS
 } from "./types.js";
 
-export const fetchCountries = (name) => {
+export const fetchCountries = (name, continent) => {
+  let continentConvert = "";
+  continent === undefined || continent === ""
+    ? (continentConvert = "all")
+    : (continentConvert = continent);
+
+  console.log("Continent", continentConvert, "Name", name);
   return function (dispatch) {
     if (name) {
       axios
-        .get(`http://localhost:3001/countries?name=${name}`)
+        .get(
+          `http://localhost:3001/countries?continent=${continentConvert}&name=${name}`
+        )
         .then((countries) => {
           dispatch({
             type: FETCH_COUNTRIES,
@@ -20,7 +32,7 @@ export const fetchCountries = (name) => {
           });
           dispatch({
             type: FETCH_COUNTRIESSORT,
-          })
+          });
         })
         .catch((error) => {
           dispatch({
@@ -30,7 +42,7 @@ export const fetchCountries = (name) => {
         });
     } else {
       axios
-        .get(`http://localhost:3001/countries`)
+        .get(`http://localhost:3001/countries?continent=${continentConvert}`)
         .then((countries) => {
           dispatch({
             type: FETCH_COUNTRIES,
@@ -38,14 +50,18 @@ export const fetchCountries = (name) => {
           });
           dispatch({
             type: FETCH_COUNTRIESSORT,
-          })
+          });
+          dispatch({
+            type: FETCH_ACTIVITY,
+            payload: countries.data.map((country) => country.activities),
+          });
         })
         .catch((error) => {
           dispatch({
             type: ERROR,
             payload: error,
           });
-        })
+        });
     }
   };
 };
@@ -54,12 +70,12 @@ export const setCountriesSort = (sort) => {
   return function (dispatch) {
     dispatch({
       type: SET_COUNTRIESSORT,
-      payload: sort
+      payload: sort,
     });
   };
 };
 
-export const  fetchCountriesSort =  () => {
+export const fetchCountriesSort = () => {
   return function (dispatch) {
     dispatch({
       type: FETCH_COUNTRIESSORT,
@@ -67,13 +83,27 @@ export const  fetchCountriesSort =  () => {
   };
 };
 
-
-
 export function resetErrors() {
   return function (dispatch) {
     dispatch({
       type: RESET_ERRORS,
     });
+  };
+}
+
+export function setCountriesFilter(filter) {
+  return function (dispatch) {
+    dispatch({
+      type: SET_COUNTRIESFILTER,
+      payload: filter,
+    });
+  };
+}
+
+export function filterByActivity(payload) {
+  return {
+    type: FILTER_BY_ACTIVITY,
+    payload,
   };
 }
 
@@ -87,23 +117,6 @@ export function fetchCountriesById(id) {
           payload: countrie,
         });
       })
-      .catch((error) => {
-        dispatch({
-          type: ERROR,
-          payload: error,
-        });
-      });
+      .catch((error) => {});
   };
 }
-/* 
-export const searchCountries = () => async (dispatch, getState) => {
-  try {
-      const res = await axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=20");
-      dispatch({
-          type: FETCH_COUNTRIES,
-          payload: res.data.results
-      })
-  } catch (error) {
-    console.log(error);
-  }
-}; */

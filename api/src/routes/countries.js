@@ -1,5 +1,4 @@
 const router = require("express").Router();
-//const axios = require("axios");
 const { Sequelize } = require("sequelize");
 const Op = Sequelize.Op;
 const { Country, Activity } = require("../db.js");
@@ -12,11 +11,11 @@ router.get("/", (req, res, next) => {
         name: { [Op.iLike]: "%" + name.toLowerCase() + "%" },
       },
     })
-      .then((country) => res.send(country))
+      .then((country) => res.send(country.length > 0 ? country : "Country not Found"))
       .catch((error) => next(error));
   } else {
     return Country.findAll({
-      attributes: ["flag", "name", "continents", "id", "population"],
+      attributes: ["flag", "name", "continent", "id", "population"],
       include: { model: Activity },
     })
       .then((country) => {

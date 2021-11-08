@@ -14,12 +14,42 @@
   --secondary-color: #ffde59;
   --terceary-color: #edb888;
   --others-color: #87929b;
-  --gradient-primary-bottom: linear-gradient(to bottom, #10305810, #0a0011 100%);
-  --error-color:#87929b;
+  --gradient-primary-bottom: linear-gradient(
+    to bottom,
+    #10305810,
+    #0a0011 100%
+  );
+  --error-color: #87929b;
   --background-radial-color: -webkit-radial-gradient(#10305810, #0a0011);
-  --background-radial-color-secondary: -webkit-radial-gradient(#10305810, #0a001190);
-  --background-radial-hover-color: -webkit-radial-gradient(#45581040, #0a001110);
+  --background-radial-color-secondary: -webkit-radial-gradient(
+    #10305810,
+    #0a001190
+  );
+  --background-radial-hover-color: -webkit-radial-gradient(
+    #45581040,
+    #0a001110
+  );
   --input-border-color: #87929b40;
+}
+
+input[type="time"]::-webkit-datetime-edit-fields-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+input[type="time"]::-webkit-datetime-edit-text {
+  padding: 5px 4px;
+}
+
+input[type="time"]::-webkit-datetime-edit-hour-field {
+  background-color: var(--gradient-primary-bottom);
+  padding: 5px 13px;
+}
+
+input[type="time"]::-webkit-datetime-edit-minute-field {
+  background-color: var(--gradient-primary-bottom);
+  border-radius: 15%;
+  padding: 5px 13px;
 }
 
 .select_activity {
@@ -38,12 +68,9 @@
   color: var(--others-color);
 }
 
-
-
 .select_activity:focus {
   outline: none;
 }
-
 
 .container {
   background: var(--background-radial-color);
@@ -252,7 +279,16 @@
   top: 1%;
 }
 
-.derdata_down h2 {
+.derdata_down_up {
+  position: relative;
+  background: var(--background-radial-color);
+  height: 85%;
+  width: 100%;
+  top: 1%;
+  overflow: hidden;
+}
+
+.derdata_down_up h2 {
   position: relative;
   color: var(--terceary-color);
   font-size: 1.5rem;
@@ -260,7 +296,30 @@
   top: 10px;
 }
 
-.derdata_down span {
+.ul_selectedcountries {
+  display: grid;
+  grid-template-columns: 1fr;
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+}
+.li_selectedcountries {
+  position: relative;
+  color: var(--others-color);
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+
+.derdata_down_down {
+  position: absolute;
+  background: var(--background-radial-color);
+  height: 15%;
+  width: 100%;
+  top: 85%;
+}
+
+.span_createactivity {
   display: flex;
   position: relative;
   border-radius: 30%;
@@ -268,7 +327,6 @@
   font-size: 1.5rem;
   opacity: 0.8;
   justify-content: center;
-  top: 70%;
 }
 
 .derdata_down span:hover {

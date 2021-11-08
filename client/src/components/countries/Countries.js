@@ -120,6 +120,7 @@ const Countries = () => {
   }
   //FUNCTION HANDLE ACTIVITY CHANGE
   function handleActivyChange(e) {
+    setCurrentPage(1);
     dispatch(filterByActivity(e.target.value));
   }
 
@@ -318,7 +319,7 @@ const Countries = () => {
                     id={country.id}
                     flag={country.flag}
                     name={country.name}
-                    continents={country.continents}
+                    continent={country.continent}
                     population={country.population}
                     className={styles.countries_card}
                   />

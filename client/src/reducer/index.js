@@ -23,7 +23,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_COUNTRIES: {
-      return { ...state, countries: action.payload.data, countriesAll: state.selectedFilter !== "" ? state.countries.filter((country) => country.continents.toLowerCase() === state.selectedFilter) : action.payload.data, countrieById: []  };
+      return { ...state, countries: action.payload.data, countriesAll: state.selectedFilter !== "" ? state.countries.filter((country) => country.continent.toLowerCase() === state.selectedFilter) : action.payload.data, countrieById: []  };
     }
     case SET_COUNTRIESSORT: {
       return { ...state, selectedSort: action.payload };

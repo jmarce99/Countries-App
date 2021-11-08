@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { fetchCountries } from "../../actions";
-
+import { useHistory } from "react-router";
 //IMPORTS COMPONENTS
 import Nav from "../nav/Nav";
 import imagen from "../../assets/backgroundCountries.jpg";
@@ -14,6 +14,7 @@ const AddActivity = () => {
   //DEFINES USESELECTOR AND USEDISPATCH
   const countries = useSelector((state) => state.countries);
   const dispatch = useDispatch();
+  const history = useHistory();
   //DEFINES LOCAL STATES
   const [form, setForm] = useState({
     name: "",
@@ -126,7 +127,8 @@ const AddActivity = () => {
         } else alert("Country not found");
       } else {
         const countriesFind = countries.find(
-          (country) => country.name.toLowerCase() === e.target.value.toLowerCase()
+          (country) =>
+            country.name.toLowerCase() === e.target.value.toLowerCase()
         );
         if (countriesFind) {
           setForm({
@@ -154,8 +156,10 @@ const AddActivity = () => {
     } else {
       let res = await axios.post("http://localhost:3001/activities", form);
       alert("Your activity has been created!");
-
       console.log(res.data);
+      setTimeout(() => {
+        history.push("/countries");
+      }, 500);
     }
   }
 
@@ -191,7 +195,7 @@ const AddActivity = () => {
                   <input type="text" name="name" onChange={handleInputChange} />
                   <h2>Duration:</h2>
                   <input
-                    type="text"
+                    type="time"
                     name="duration"
                     onChange={handleInputChange}
                   />
@@ -324,18 +328,25 @@ const AddActivity = () => {
                   </select>
                 </div>
                 <div className={styles.derdata_down}>
-                  <h2>Selected Countries:</h2>
-                  {form.countries.map((i) => (
-                    <p>{i}</p>
-                  ))}
-                  <span
-                    type="submit"
-                    id="sendButton"
-                    value="enviar"
-                    onClick={(e) => sendForm(e)}
-                  >
-                    CREATE ACTIVITY
-                  </span>
+                  <div className={styles.derdata_down_up}>
+                    <h2>Selected Countries:</h2>
+                    <ul className={styles.ul_selectedcountries}>
+                      {form.countries.map((i) => (
+                        <li className={styles.li_selectedcountries}>{i}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className={styles.derdata_down_down}>
+                    <span
+                      type="submit"
+                      id="sendButton"
+                      value="enviar"
+                      className={styles.span_createactivity}
+                      onClick={(e) => sendForm(e)}
+                    >
+                      CREATE ACTIVITY
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>

@@ -19,11 +19,11 @@ module.exports = (sequelize) => {
       flag:{
         type: DataTypes.STRING,
       },
-      continents: {
+      continent: {
         type: DataTypes.STRING,
       },
       capital: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
       },
       subregion: {
         type: DataTypes.STRING,

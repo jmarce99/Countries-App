@@ -10,7 +10,6 @@ const CountryCard = ({ flag, name, continent, population, id }) => {
           <img src={flag} alt="country-flag" />
           <h2>{name} </h2>
         </div>
-
         <div className={styles.data}>
           <h3>Continent : </h3>
           <h4 className={styles.da}>{continent}</h4>

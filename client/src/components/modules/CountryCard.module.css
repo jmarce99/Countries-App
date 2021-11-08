@@ -12,17 +12,27 @@
   --secondary-color: #ffde59;
   --terceary-color: #edb888;
   --others-color: #87929b;
-  --gradient-primary-bottom: linear-gradient(to bottom, #10305810, #0a0011 100%);
+  --gradient-primary-bottom: linear-gradient(
+    to bottom,
+    #10305810,
+    #0a0011 100%
+  );
   --gradient-primary-top: linear-gradient(to top, #10305810, #0a0011 100%);
-  --error-color:#87929b;
+  --error-color: #87929b;
   --background-radial-color: -webkit-radial-gradient(#10305810, #0a0011);
-  --background-radial-color-secondary: -webkit-radial-gradient(#10305810, #0a001190);
-  --background-radial-hover-color: -webkit-radial-gradient(#45581040, #0a001110);
+  --background-radial-color-secondary: -webkit-radial-gradient(
+    #10305810,
+    #0a001190
+  );
+  --background-radial-hover-color: -webkit-radial-gradient(
+    #45581040,
+    #0a001110
+  );
   --input-border-color: #87929b40;
 }
 
 .container {
-  background: -webkit-radial-gradient(#10305860, #0a0011);
+  background: var(--background-radial-color);
   position: absolute;
   width: 200px;
   height: 235px;
@@ -36,18 +46,16 @@
 .country img {
   position: relative;
   z-index: 2;
-  width: 170px;
-  height: 100px;
-  top: 50%;
-  left: 0;
-  margin: 10px;
+  width: 150px;
+  height: 80px;
+  margin: 20px;
   padding: 0;
   overflow: hidden;
   border-radius: 15px;
 }
 
 .country {
-  color: #edb888;
+  color: var(--terceary-color);
   text-align: center;
   font-size: 0.65rem;
   letter-spacing: 0.2em;
@@ -56,26 +64,23 @@
 }
 
 .data {
-  color: #87929b;
-  position: relative;
+  color: var(--others-color);
+  position: absolute;
   font-size: 0.55rem;
   font-family: "Montserrat", sans-serif;
   letter-spacing: 0.11em;
   width: 100%;
-  margin: 10px 0 10px 0;
-  top: 10%;
+  top: 80%;
 }
 .data h3 {
   display: block;
   position: absolute;
   text-align: left;
   margin-left: 3%;
-
 }
-.da{
+.da {
   display: block;
   text-align: right;
   margin: 0 3%;
   font-size: 1.17em;
 }
-

@@ -41,7 +41,7 @@ const Countries = () => {
   //DEFINES LOCALS STATES
   //const [filterByContinent, setFilterByContinent] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [countriesPerPage] = useState(8);
+  const [countriesPerPage] = useState(10);
 
   //DEFINES USEEFFECT GET COUNTRIES
   useEffect(() => {

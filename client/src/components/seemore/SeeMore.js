@@ -27,7 +27,6 @@ const SeeMore = () => {
     dispatch(fetchCountriesById(id));
   }, [dispatch, id]);
 
-
   function errorFunction() {
     dispatch(resetErrors());
     alert("ERROR 404: Country Not Found");
@@ -47,6 +46,7 @@ const SeeMore = () => {
   //CHANGE PAGE
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const totalPages = activities.length / activitiesPerPage;
+
 
   return (
     <div className={styles.container}>
@@ -87,11 +87,23 @@ const SeeMore = () => {
                   </li>
                   <li>
                     <h3>Area: </h3>
-                    <span>{countryData ? countryData.area : ""}</span>
+                    <span>
+                      {countryData
+                        ? `${countryData.area
+                            ?.toString()
+                            .replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")} KM²`
+                        : ""}
+                    </span>
                   </li>
                   <li>
                     <h3>Population:</h3>
-                    <span>{countryData ? countryData.population : ""}</span>
+                    <span>
+                      {countryData
+                        ? `${countryData.population
+                            ?.toString()
+                            .replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")}`
+                        : ""}
+                    </span>
                   </li>
                 </ul>
               </div>

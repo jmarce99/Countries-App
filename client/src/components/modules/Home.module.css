@@ -1,5 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #bfc7d8;
+  --secondary-color: #ffde59;
+  --terceary-color: #edb888;
+  --others-color: #87929b;
+  --gradient-primary-bottom: linear-gradient(to bottom, #10305810, #0a0011 100%);
+  --gradient-primary-top: linear-gradient(to top, #10305810, #0a0011 100%);
+  --error-color:#87929b;
+  --background-radial-color: -webkit-radial-gradient(#10305810, #0a0011);
+  --background-radial-color-secondary: -webkit-radial-gradient(#10305810, #0a001190);
+  --background-radial-hover-color: -webkit-radial-gradient(#45581040, #0a001110);
+  --input-border-color: #87929b40;
+}
+
 body {
   margin: 0px;
 }

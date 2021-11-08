@@ -10,6 +10,7 @@ import styles from "../modules/Pagination.module.css";
 
 const Pagination = ({ totalPages, currentPage, paginate }) => {
   //RENDER
+  let errors = 0;
   return (
     <nav className={styles.nav}>
       <div
@@ -17,7 +18,7 @@ const Pagination = ({ totalPages, currentPage, paginate }) => {
         onClick={() => {
           currentPage - 1 > 0
             ? paginate(currentPage - 1)
-            : console.log("false");
+            : errors++;
         }}
       >
         <BsArrowLeftShort className={styles.arrow1} />
@@ -52,7 +53,7 @@ const Pagination = ({ totalPages, currentPage, paginate }) => {
         onClick={() => {
           currentPage + 1 < totalPages + 1
             ? paginate(currentPage + 1)
-            : console.log("false");
+            : errors++;
         }}
       >
         <BsArrowRightShort className={styles.arrow2} />

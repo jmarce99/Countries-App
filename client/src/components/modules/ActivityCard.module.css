@@ -1,5 +1,25 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #bfc7d8;
+  --secondary-color: #ffde59;
+  --terceary-color: #edb888;
+  --others-color: #87929b;
+  --gradient-primary-bottom: linear-gradient(to bottom, #10305810, #0a0011 100%);
+  --gradient-primary-top: linear-gradient(to top, #10305810, #0a0011 100%);
+  --error-color:#87929b;
+  --background-radial-color: -webkit-radial-gradient(#10305810, #0a0011);
+  --background-radial-color-secondary: -webkit-radial-gradient(#10305810, #0a001190);
+  --background-radial-hover-color: -webkit-radial-gradient(#45581040, #0a001110);
+  --input-border-color: #87929b40;
+}
+
 .container {
-  background: -webkit-radial-gradient(#1f5fad10, #0a0011);
+  background: var(--background-radial-color-secondary);
   position: absolute;
   width: 80%;
   height: 95%;
@@ -14,7 +34,7 @@
 }
 
 .title {
-  background: -webkit-radial-gradient(#10305810, #0a001190);
+  background: var(--background-radial-color);
   display: flex;
   position: relative;
   width: 100%;
@@ -23,10 +43,9 @@
   justify-content: center;
 }
 .title h2 {
-  position: relative;
-  font-size: 2.5rem;
-  letter-spacing: 0.4em;
-  color: #edb888;
+  font-size: 2rem;
+  letter-spacing: 0.3em;
+  color: var(--terceary-color);
 }
 
 .data {
@@ -35,7 +54,6 @@
   z-index: 4;
   width: 100%;
   height: 83%;
-  color: #87929b;
 }
 
 .data ul {
@@ -51,18 +69,14 @@
 
 .data li {
   display: grid;
-  position: relative;
-  grid-template-columns:2fr 2fr;
+  grid-template-columns: 1fr;
+  justify-content: center;
 }
 .data h3 {
-  display: block;
-  color: #bdcbd6;
-  font-size: 1.2rem;
-  text-align: left;
+  color: var(--primary-color);
+  font-size: 1.5rem;
 }
 .data span {
-  display: inline-block;
-  color: #87929b;
-  font-size: 1.2rem;
-  text-align: right;
+  color: var(--others-color);
+  font-size: 1rem;
 }

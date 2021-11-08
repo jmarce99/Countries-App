@@ -18,7 +18,7 @@ export const fetchCountries = (name, continent) => {
     ? (continentConvert = "all")
     : (continentConvert = continent);
 
-  console.log("Continent", continentConvert, "Name", name);
+  //console.log("Continent", continentConvert, "Name", name);
   return function (dispatch) {
     if (name) {
       axios

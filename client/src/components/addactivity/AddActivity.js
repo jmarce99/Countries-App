@@ -103,10 +103,12 @@ const AddActivity = () => {
   }
   // FUNCTION HANDLE CHANGE COUNTRY
   function handleChange(e) {
-    setForm({
-      ...form,
-      [e.target.name]: [...form.countries, e.target.value],
-    });
+    form.countries.includes(e.target.value)
+      ? setForm({ ...form })
+      : setForm({
+          ...form,
+          [e.target.name]: [...form.countries, e.target.value],
+        });
   }
 
   // FUNCTION HANDLE BUTTON INPUT COUNTRY
@@ -119,10 +121,12 @@ const AddActivity = () => {
           (country) => country.id === e.target.value.toUpperCase()
         );
         if (countriesFind) {
-          setForm({
-            ...form,
-            countries: [...form.countries, countriesFind.name],
-          });
+          form.countries.includes(countriesFind.name)
+          ? setForm({ ...form })
+          : setForm({
+              ...form,
+              countries: [...form.countries, countriesFind.name],
+            });
           alert("Country added to activity");
         } else alert("Country not found");
       } else {
@@ -131,10 +135,12 @@ const AddActivity = () => {
             country.name.toLowerCase() === e.target.value.toLowerCase()
         );
         if (countriesFind) {
-          setForm({
-            ...form,
-            countries: [...form.countries, countriesFind.name],
-          });
+          form.countries.includes(countriesFind.name)
+          ? setForm({ ...form })
+          : setForm({
+              ...form,
+              countries: [...form.countries, countriesFind.name],
+            });
           alert("Country added to activity");
         } else alert("Country not found");
       }
@@ -323,7 +329,9 @@ const AddActivity = () => {
                   >
                     <option value="">SELECT A COUNTRY</option>
                     {countries.map((i) => (
-                      <option value={i.name}>{i.name}</option>
+                      <option value={i.name} key={i.name}>
+                        {i.name}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -332,7 +340,9 @@ const AddActivity = () => {
                     <h2>Selected Countries:</h2>
                     <ul className={styles.ul_selectedcountries}>
                       {form.countries.map((i) => (
-                        <li className={styles.li_selectedcountries}>{i}</li>
+                        <li className={styles.li_selectedcountries} key={i}>
+                          {i}
+                        </li>
                       ))}
                     </ul>
                   </div>

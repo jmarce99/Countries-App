@@ -25,7 +25,6 @@ import styles from "../modules/Countries.module.css";
 
 const Countries = () => {
   //DEFINES USESELECTOR AND USEDISPATCH
-  const countries = useSelector((state) => state.countries);
   const countriesSort = useSelector((state) => state.countriesSort);
   const selectedSort = useSelector((state) => state.selectedSort);
   const selectedFilter = useSelector((state) => state.selectedFilter);
@@ -36,7 +35,7 @@ const Countries = () => {
   const activitiesArray = [];
   activities.map((activity) => {
     let find = activitiesArray.find((act) => act.id === activity.id);
-    !find ? activitiesArray.push(activity) : (find = null);
+    return !find ? activitiesArray.push(activity) : (find = null);
   });
 
   //DEFINES LOCALS STATES

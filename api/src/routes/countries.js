@@ -15,7 +15,7 @@ router.get("/", (req, res, next) => {
       .catch((error) => next(error));
   } else {
     return Country.findAll({
-      attributes: ["flag", "name", "continent", "id", "population"],
+      attributes: ["flag", "name", "continent", "capital", "id", "population"],
       include: { model: Activity },
     })
       .then((country) => {

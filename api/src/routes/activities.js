@@ -27,7 +27,7 @@ router.post("/", async (req, res, next) => {
           name: i,
         },
       });
-
+      // newActivity.addCountries(countries)
       country.addActivity(newActivity);
     }
 
